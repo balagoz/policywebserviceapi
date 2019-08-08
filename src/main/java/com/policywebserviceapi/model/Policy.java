@@ -65,6 +65,7 @@ public class Policy  implements java.io.Serializable {
       this.policyType = policyType;
    }
   
+   
    @Id@GeneratedValue(strategy=IDENTITY)
    @Column(name="policy_no", unique=true, nullable=true)
    public Long getPolicyNo() {
@@ -75,6 +76,7 @@ public class Policy  implements java.io.Serializable {
        this.policyNo = policyNo;
    }
 
+   
    @CreatedDate
    @Temporal(TemporalType.DATE)
    @Column(name="policy_start_date", nullable=true, length=10)
@@ -86,6 +88,7 @@ public class Policy  implements java.io.Serializable {
        this.policyStartDate = policyStartDate;
    }
 
+   
    @Temporal(TemporalType.DATE)
    @Column(name="policy_end_date", nullable=true, length=10)
    public Date getPolicyEndDate() {
@@ -95,6 +98,7 @@ public class Policy  implements java.io.Serializable {
    public void setPolicyEndDate(Date policyEndDate) {
        this.policyEndDate = policyEndDate;
    }
+   
    
    @Temporal(TemporalType.TIMESTAMP)
    @Column(name="policy_issue_date", nullable=true, length=19)
@@ -107,6 +111,7 @@ public class Policy  implements java.io.Serializable {
        this.policyIssueDate = policyIssueDate;
    }
    
+   
    @Temporal(TemporalType.TIMESTAMP)
    @Column(name="policy_last_update_date", nullable=true, length=19)
    @LastModifiedDate
@@ -118,6 +123,7 @@ public class Policy  implements java.io.Serializable {
        this.policyLastUpdateDate = policyLastUpdateDate;
    }
    
+   
    @Column(name="policy_status", nullable=true, length=20)
    public String getPolicyStatus() {
        return this.policyStatus;
@@ -127,6 +133,7 @@ public class Policy  implements java.io.Serializable {
        this.policyStatus = policyStatus;
    }
   
+   
    @Column(name="policy_premium", nullable=true, precision=22, scale=0)
    public Double getPolicyPremium() {
        return this.policyPremium;
@@ -136,6 +143,7 @@ public class Policy  implements java.io.Serializable {
        this.policyPremium = policyPremium;
    }
   
+   
    @Column(name="policy_type", nullable=true, length=20)
    public String getPolicyType() {
        return this.policyType;
