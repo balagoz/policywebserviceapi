@@ -96,7 +96,6 @@ public class Policy  implements java.io.Serializable {
        this.policyEndDate = policyEndDate;
    }
    
-   
    @Temporal(TemporalType.TIMESTAMP)
    @Column(name="policy_issue_date", nullable=true, length=19)
    public Date getPolicyIssueDate() {
@@ -107,7 +106,6 @@ public class Policy  implements java.io.Serializable {
    public void setPolicyIssueDate(Date policyIssueDate) {
        this.policyIssueDate = policyIssueDate;
    }
-   
    
    @Temporal(TemporalType.TIMESTAMP)
    @Column(name="policy_last_update_date", nullable=true, length=19)
@@ -128,8 +126,7 @@ public class Policy  implements java.io.Serializable {
    public void setPolicyStatus(String policyStatus) {
        this.policyStatus = policyStatus;
    }
-
-   
+  
    @Column(name="policy_premium", nullable=true, precision=22, scale=0)
    public Double getPolicyPremium() {
        return this.policyPremium;
@@ -138,8 +135,7 @@ public class Policy  implements java.io.Serializable {
    public void setPolicyPremium(Double policyPremium) {
        this.policyPremium = policyPremium;
    }
-
-   
+  
    @Column(name="policy_type", nullable=true, length=20)
    public String getPolicyType() {
        return this.policyType;
@@ -149,6 +145,4 @@ public class Policy  implements java.io.Serializable {
        this.policyType = policyType;
    }
 
-
 }
-
