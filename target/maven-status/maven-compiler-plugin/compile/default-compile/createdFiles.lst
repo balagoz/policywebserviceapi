@@ -1,0 +1,6 @@
+com\policywebserviceapi\controller\PolicyController.class
+com\policywebserviceapi\repository\PolicyRepository.class
+com\policywebserviceapi\PolicyApplication.class
+com\policywebserviceapi\dao\PolicyDAO.class
+com\policywebserviceapi\model\Policy.class
+com\policywebserviceapi\service\ServiceUtil.class
