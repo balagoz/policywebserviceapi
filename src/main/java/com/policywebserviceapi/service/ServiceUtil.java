@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class ServiceUtil {
 	
+	/* GET NEXT YEAR TODAY DATE */
 	 public static Date getNextYearToday(){
 	        Calendar cal = Calendar.getInstance();
 	        cal.add(Calendar.YEAR, 1);
@@ -12,6 +13,7 @@ public class ServiceUtil {
 	        return nextYear;
 	    }
 	 
+	 /* GET TODAY DATE */ 
 	 public static Date getToday(){
 	        Calendar cal = Calendar.getInstance();
 	        Date today = cal.getTime();
