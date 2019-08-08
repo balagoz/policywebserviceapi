@@ -75,7 +75,7 @@ public class Policy  implements java.io.Serializable {
        this.policyNo = policyNo;
    }
 
-   
+   @CreatedDate
    @Temporal(TemporalType.DATE)
    @Column(name="policy_start_date", nullable=true, length=10)
    public Date getPolicyStartDate() {
