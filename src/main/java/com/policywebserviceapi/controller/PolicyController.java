@@ -39,7 +39,7 @@ public class PolicyController {
 	
 	/* get policy by polID */
 	@GetMapping("/policy/{id}")
-	public ResponseEntity<Policy> getPolicyById(@PathVariable (value="id") Integer polID){
+	public ResponseEntity<Policy> getPolicyById(@PathVariable (value="id") Long polID){
 		Policy pol = policyDAO.findOne(polID);
 		if(pol == null) {
 			return ResponseEntity.notFound().build();
@@ -49,13 +49,12 @@ public class PolicyController {
 	
 	/* update an policy by polID */
 	@PutMapping("/policy/{id}")
-	public ResponseEntity<Policy> updatePolicy(@PathVariable (value="id") Integer polID,@Valid @RequestBody Policy polDetails){
+	public ResponseEntity<Policy> updatePolicy(@PathVariable (value="id") Long polID,@Valid @RequestBody Policy polDetails){
 		Policy pol = policyDAO.findOne(polID);
 		if(pol == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		pol.setPolicyNo(polDetails.getPolicyNo());
 		pol.setPolicyStartDate(polDetails.getPolicyStartDate());
 		pol.setPolicyEndDate(polDetails.getPolicyEndDate());
 		pol.setPolicyIssueDate(polDetails.getPolicyIssueDate());
@@ -72,12 +71,13 @@ public class PolicyController {
 	
 	/* delete an policy */
 	@DeleteMapping("/policy/{id}")
-	public ResponseEntity<Policy> deletePolicy(@PathVariable (value="id") Integer polID){
+	public ResponseEntity<Policy> deletePolicy(@PathVariable (value="id") Long polID){
 		
 		Policy pol = policyDAO.findOne(polID);
 		if(pol == null) {
 			return ResponseEntity.notFound().build();
 		}
+		policyDAO.delete(pol);
 		return ResponseEntity.ok().build();
 		
 	}

@@ -32,9 +32,8 @@ import com.policywebserviceapi.service.ServiceUtil;
 
 public class Policy  implements java.io.Serializable {
     
-	@Id 
-	@GeneratedValue(strategy=IDENTITY)
-	private Integer policyNo;
+	@Id@GeneratedValue(strategy=IDENTITY)
+	private Long policyNo;
 	
 	@Temporal(TemporalType.DATE)
     @JsonFormat(pattern="yyyy-MM-dd")
@@ -63,12 +62,13 @@ public class Policy  implements java.io.Serializable {
       this.policyType = policyType;
    }
   
+   @Id@GeneratedValue(strategy=IDENTITY)
    @Column(name="policy_no", unique=true, nullable=true)
-   public Integer getPolicyNo() {
+   public Long getPolicyNo() {
        return this.policyNo;
    }
    
-   public void setPolicyNo(Integer policyNo) {
+   public void setPolicyNo(Long policyNo) {
        this.policyNo = policyNo;
    }
 

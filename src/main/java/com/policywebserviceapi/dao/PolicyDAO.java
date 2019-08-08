@@ -17,7 +17,7 @@ public class PolicyDAO {
 	/* to save an policy */
 	
 	public Policy save(Policy pol) {
-		return policyRepository.saveAndFlush(pol);
+		return policyRepository.save(pol);
 	}
 	
 	/* search all policy */
@@ -28,7 +28,7 @@ public class PolicyDAO {
 	
 	/* get an policy */
 	
-	public Policy findOne(Integer polID) {
+	public Policy findOne(Long polID) {
 		return policyRepository.findOne(polID);
 	}
 	
