@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.policywebserviceapi.dao.PolicyDAO;
 import com.policywebserviceapi.model.Policy;
+import com.policywebserviceapi.service.ServiceUtil;
 
 @RestController
 @RequestMapping("/softtech")
@@ -28,6 +29,8 @@ public class PolicyController {
 	/* to save an policy */
 	@PostMapping("/policy")
 	public Policy createPolicy(@Valid @RequestBody Policy pol) {
+		pol.setPolicyEndDate(ServiceUtil.getNextYearToday());
+		pol.setPolicyIssueDate(ServiceUtil.getToday());
 		return policyDAO.save(pol);
 	}
 	
@@ -55,9 +58,14 @@ public class PolicyController {
 			return ResponseEntity.notFound().build();
 		}
 		
-		pol.setPolicyStartDate(polDetails.getPolicyStartDate());
-		pol.setPolicyEndDate(polDetails.getPolicyEndDate());
-		pol.setPolicyIssueDate(polDetails.getPolicyIssueDate());
+		if(polDetails.getPolicyStartDate() != null) {
+			pol.setPolicyStartDate(polDetails.getPolicyStartDate());
+		}
+		if(polDetails.getPolicyEndDate() != null) {
+			pol.setPolicyEndDate(polDetails.getPolicyEndDate());
+		}
+		
+		
 		pol.setPolicyLastUpdateDate(polDetails.getPolicyLastUpdateDate());
 		pol.setPolicyStatus(polDetails.getPolicyStatus());
 		pol.setPolicyPremium(polDetails.getPolicyPremium());

@@ -43,7 +43,10 @@ public class Policy  implements java.io.Serializable {
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date policyEndDate;
 	
+	@Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(timezone="Europe/Istanbul" , pattern="yyyy-MM-dd HH:mm:ss z")
     private Date policyIssueDate;
+	
     private Date policyLastUpdateDate;
     private String policyStatus;
     private Double policyPremium;
@@ -72,7 +75,7 @@ public class Policy  implements java.io.Serializable {
        this.policyNo = policyNo;
    }
 
-   @CreatedDate
+   
    @Temporal(TemporalType.DATE)
    @Column(name="policy_start_date", nullable=true, length=10)
    public Date getPolicyStartDate() {
@@ -83,11 +86,9 @@ public class Policy  implements java.io.Serializable {
        this.policyStartDate = policyStartDate;
    }
 
-   @CreatedDate
    @Temporal(TemporalType.DATE)
    @Column(name="policy_end_date", nullable=true, length=10)
    public Date getPolicyEndDate() {
-	   //policyEndDate = ServiceUtil.getNextYearToday();
        return this.policyEndDate;
    }
    
@@ -96,10 +97,10 @@ public class Policy  implements java.io.Serializable {
    }
    
    
-   @CreatedDate
    @Temporal(TemporalType.TIMESTAMP)
    @Column(name="policy_issue_date", nullable=true, length=19)
    public Date getPolicyIssueDate() {
+	   //Date today = ServiceUtil.getToday();
        return this.policyIssueDate;
    }
    
