@@ -29,6 +29,7 @@ public class PolicyController {
 	/* to save an policy */
 	@PostMapping("/policy")
 	public Policy createPolicy(@Valid @RequestBody Policy pol) {
+		pol.setPolicyKey(ServiceUtil.generateKey());
 		pol.setPolicyEndDate(ServiceUtil.getNextYearToday());
 		pol.setPolicyIssueDate(ServiceUtil.getToday());
 		return policyDAO.save(pol);

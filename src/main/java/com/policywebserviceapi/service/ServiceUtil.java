@@ -20,5 +20,22 @@ public class ServiceUtil {
 	        cal.add(Calendar.YEAR, 1);
 	        return today;
 	    }
+	 
+	 public static String generateKey() {
+			
+			int n=20;
+	        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	                                    + "0123456789"; 
+	        StringBuilder sb = new StringBuilder(n); 
+	        for (int i = 0; i < n; i++) { 
+	            int index 
+	                = (int)(AlphaNumericString.length() 
+	                        * Math.random()); 
+	  
+	            sb.append(AlphaNumericString 
+	                          .charAt(index)); 
+	        } 
+        return sb.toString();
+	}
 
 }

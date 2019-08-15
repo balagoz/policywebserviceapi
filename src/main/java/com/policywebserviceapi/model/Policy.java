@@ -35,6 +35,8 @@ public class Policy  implements java.io.Serializable {
 	@Id@GeneratedValue(strategy=IDENTITY)
 	private Long policyNo;
 	
+	private String policyKey;
+	
 	@Temporal(TemporalType.DATE)
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date policyStartDate;
@@ -55,7 +57,8 @@ public class Policy  implements java.io.Serializable {
    public Policy() {
    }
 
-   public Policy(Date policyStartDate, Date policyEndDate, Date policyIssueDate,Date policyLastUpdateDate, String policyStatus, Double policyPremium, String policyType) {
+   public Policy(String policyKey, Date policyStartDate, Date policyEndDate, Date policyIssueDate,Date policyLastUpdateDate, String policyStatus, Double policyPremium, String policyType) {
+      this.policyKey = policyKey;
       this.policyStartDate = policyStartDate;
       this.policyEndDate = policyEndDate;
       this.policyIssueDate = policyIssueDate;
@@ -76,8 +79,16 @@ public class Policy  implements java.io.Serializable {
        this.policyNo = policyNo;
    }
 
-   
-   @CreatedDate
+   @Column(name="policy_key", unique=true, nullable=true)
+   public String getPolicyKey() {
+	   return this.policyKey;
+	}
+	
+	public void setPolicyKey(String policyKey) {
+		this.policyKey = policyKey;
+	}
+	
+	@CreatedDate
    @Temporal(TemporalType.DATE)
    @Column(name="policy_start_date", nullable=true, length=10)
    public Date getPolicyStartDate() {
