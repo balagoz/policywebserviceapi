@@ -1,6 +1,10 @@
 C:\Users\stj.balagoz\eclipse-jee-workspace\policywebserviceapi\src\main\java\com\policywebserviceapi\model\Policy.java
 C:\Users\stj.balagoz\eclipse-jee-workspace\policywebserviceapi\src\main\java\com\policywebserviceapi\PolicyApplication.java
+C:\Users\stj.balagoz\eclipse-jee-workspace\policywebserviceapi\src\main\java\com\policywebserviceapi\dao\UserDAO.java
+C:\Users\stj.balagoz\eclipse-jee-workspace\policywebserviceapi\src\main\java\com\policywebserviceapi\repository\UserRepository.java
+C:\Users\stj.balagoz\eclipse-jee-workspace\policywebserviceapi\src\main\java\com\policywebserviceapi\controller\UserController.java
 C:\Users\stj.balagoz\eclipse-jee-workspace\policywebserviceapi\src\main\java\com\policywebserviceapi\repository\PolicyRepository.java
 C:\Users\stj.balagoz\eclipse-jee-workspace\policywebserviceapi\src\main\java\com\policywebserviceapi\controller\PolicyController.java
+C:\Users\stj.balagoz\eclipse-jee-workspace\policywebserviceapi\src\main\java\com\policywebserviceapi\model\User.java
 C:\Users\stj.balagoz\eclipse-jee-workspace\policywebserviceapi\src\main\java\com\policywebserviceapi\service\ServiceUtil.java
 C:\Users\stj.balagoz\eclipse-jee-workspace\policywebserviceapi\src\main\java\com\policywebserviceapi\dao\PolicyDAO.java

@@ -2,5 +2,9 @@ com\policywebserviceapi\controller\PolicyController.class
 com\policywebserviceapi\repository\PolicyRepository.class
 com\policywebserviceapi\PolicyApplication.class
 com\policywebserviceapi\dao\PolicyDAO.class
+com\policywebserviceapi\repository\UserRepository.class
+com\policywebserviceapi\model\User.class
 com\policywebserviceapi\model\Policy.class
+com\policywebserviceapi\controller\UserController.class
+com\policywebserviceapi\dao\UserDAO.class
 com\policywebserviceapi\service\ServiceUtil.class
