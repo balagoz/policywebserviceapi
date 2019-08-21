@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.policywebserviceapi.dao.UserDAO;
+import com.policywebserviceapi.model.Policy;
 import com.policywebserviceapi.model.User;
 import com.policywebserviceapi.service.ServiceUtil;
 
@@ -34,7 +35,8 @@ public class UserController {
 		pol.setPolicyEndDate(ServiceUtil.getNextYearToday());
 		pol.setPolicyIssueDate(ServiceUtil.getToday());
 		return policyDAO.save(pol);*/
-		return null;
+		user.setUserKey(ServiceUtil.generateKey());
+		return userDAO.save(user);
 	}
 	
 	/* get all policy */
@@ -47,6 +49,16 @@ public class UserController {
 	@GetMapping("/user/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable (value="id") Long userID){
 		User us = userDAO.findOne(userID);
+		if(us == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok().body(us);
+	}
+	
+	/* get policy by userTC */
+	@GetMapping("/user/tckn/{tc}")
+	public ResponseEntity<User> getUserByTc(@PathVariable (value="tc") Long userTCKN){
+		User us = userDAO.findOneTckn(userTCKN);
 		if(us == null) {
 			return ResponseEntity.notFound().build();
 		}
@@ -82,18 +94,29 @@ public class UserController {
 	
 	/* delete an policy */
 	@DeleteMapping("/user/{id}")
-	public ResponseEntity<User> deleteUser(@PathVariable (value="id") Long userID){
-		/*
-		Policy pol = policyDAO.findOne(polID);
-		if(pol == null) {
+	public ResponseEntity<User> delete(@PathVariable (value="id") Long userID){
+		
+		User us = userDAO.findOne(userID);
+		if(us == null) {
 			return ResponseEntity.notFound().build();
 		}
-		policyDAO.delete(pol);
+		userDAO.delete(us);
 		return ResponseEntity.ok().build();
-		*/
-		return null;
+	
 	}
 	
+	/* delete an policy */
+	@DeleteMapping("/user/tckn/{tc}")
+	public ResponseEntity<User> deleteByTckn(@PathVariable (value="tc") Long userTCKN){
+		
+		User us = userDAO.findOneTckn(userTCKN);
+		if(us == null) {
+			return ResponseEntity.notFound().build();
+		}
+		userDAO.delete(us);
+		return ResponseEntity.ok().build();
+	
+	}
 	
 
 }

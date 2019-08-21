@@ -35,7 +35,9 @@ public class User implements java.io.Serializable {
 	private Long userid;
 	
 	private String userKey;
+	
 	private Long userTCKN;
+	
 	private String userSurname;
 	private String userName;
 	private String userEmail;
@@ -72,7 +74,6 @@ public class User implements java.io.Serializable {
 		public void setUserKey(String userKey) {
 			this.userKey = userKey;
 		}
-		
 		
 	   @Column(name="user_tckn", nullable=true, length=10)
 	   public Long getUserTCKN() {

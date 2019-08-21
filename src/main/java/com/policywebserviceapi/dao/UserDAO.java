@@ -14,25 +14,30 @@ public class UserDAO {
 	@Autowired
 	UserRepository userRepository;
 	
-	/* to save an policy */
+	/* to save an user */
 	
 	public User save(User user) {
 		return userRepository.save(user);
 	}
 	
-	/* search all policy */
+	/* search all user */
 	
 	public List<User> findAll(){
 		return userRepository.findAll();
 	}
 	
-	/* get an policy */
+	/* get an user */
 	
 	public User findOne(Long userID) {
 		return userRepository.findOne(userID);
 	}
 	
-	/* delete an policy by id */
+	public User findOneTckn(Long userTCKN) {
+		return userRepository.findByuserTCKN(userTCKN);
+	}
+	 
+	
+	/* delete an user by id */
 	
 	public void delete(User user) {
 		userRepository.delete(user);

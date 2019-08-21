@@ -21,6 +21,7 @@ public class ServiceUtil {
 	        return today;
 	    }
 	 
+	 /* GET GENERATE KEY */ 
 	 public static String generateKey() {
 			
 			int n=20;
